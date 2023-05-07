@@ -1,0 +1,99 @@
+.background{
+    background-image: url('https://cdn.pixabay.com/photo/2015/06/24/15/45/hands-820272_960_720.jpg');
+    background-repeat: no-repeat;
+    background-size: 100% 100%;
+    width: 100vw;
+    height: 100vh;
+   
+  }
+  
+.matToolbar{
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
+    background-color: transparent;
+    color: black;
+    height: 50px;
+    position: relative;
+    top: 50px;
+}
+.navCotent{
+    display: grid;
+    grid-template-columns: 1fr 1fr 1fr 1fr 1fr 1fr;
+    column-gap: 5px;
+    font-size: 16px;
+    
+}
+.content{
+    display: flex;
+    justify-content: center;
+}
+.content a{
+    text-decoration: none;
+    color: black;
+}
+.content a:hover{
+    color: white;
+    background-color: black;
+    cursor: pointer;
+}
+
+.searchDiv{
+    margin: 200px auto;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.dd1{
+    padding-top: 30px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+.text{
+    font-size: 35px;
+    font-weight: 700;
+    padding-bottom: 50px;
+    color: rgb(19, 19, 19);
+    letter-spacing: 0.1rem;
+}
+.searchBar{
+    display: grid;
+    grid-template-columns: 5fr 1fr;
+    column-gap: 10px;
+}
+.square-tick {
+    position: relative;
+    width: 24px;
+    height: 24px;
+    margin-right: 8px;
+  }
+  
+  .square-tick::after {
+    content: "";
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    width: 10px;
+    height: 10px;
+    border: 2px solid black;
+    border-top: none;
+    border-right: none;
+    box-sizing: border-box;
+    opacity: 0;
+    transition: opacity 0.2s ease-in-out;
+  }
+  
+  .square-tick.mat-radio-checked::after {
+    opacity: 1;
+  }
+  .register button{
+    width: 100%;
+    height: 40px;
+  }
+  .register{
+    width: 40%;
+    margin: 80px auto;
+  }

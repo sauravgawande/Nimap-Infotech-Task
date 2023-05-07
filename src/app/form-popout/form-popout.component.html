@@ -1,0 +1,157 @@
+<div class="profileHead">Profile Preview</div>
+<div *ngIf="!editMode" class="dee1" >
+    
+  <div class="previewData">
+    <div>
+      <div>
+        <div class="img1">
+          <ng-container *ngIf="imageUrl; else logo">
+            <img width="160px" height="170px" [src]="imageUrl" alt="Uploaded image">
+          </ng-container>
+          <ng-template #logo>
+            <img width="160px" height="170px" src="https://cdn.pixabay.com/photo/2015/09/09/14/02/icon-931551__340.jpg"
+              alt="Logo image">
+          </ng-template>
+        </div>
+
+        <div *ngIf="editModeImage">
+          <input type="file" (change)="onFileSelected($event)" >
+          <div *ngIf="errorMessage">{{ errorMessage }}</div>
+        </div>
+        <div *ngIf="!editModeImage">
+          <button mat-raised-button color="primary" (click)="toggleEditModeImage()" >Edit Image</button>
+        </div>
+        <div *ngIf="editModeImage">
+          <button mat-raised-button color="primary" (click)="saveImage()" >Save Image</button>
+        </div>
+
+      </div>
+       </div>
+      <div>
+        <div>
+          Hello, I am {{firstName}} {{lastName}} and I am above {{age}}
+          and you can send your emails to<span style="color: blue;"> {{email}}</span>.
+          <p>I live in the state of {{state}}</p>
+          <p>I like to play:  <span *ngFor="let skill of skills">{{skill}}, &nbsp;</span> </p>
+          <p *ngIf="subscribe === true">And please send me NewsLetters.<p>
+           <p>Please Reach me out on my phone : {{phone}}</p>
+          
+        </div>
+      </div>
+  </div>
+  <div class="btn">
+    <button  mat-raised-button color="accent" (click)="aggreeBtn()">I aggree</button>
+    <button mat-raised-button color="primary" (click)="toggleEditMode()">Edit</button>
+  </div>
+  
+</div>
+  
+  
+  
+   <div  *ngIf="editMode" class="editForm">
+   
+    <div>
+        <label for="firstName">FirstName:</label>
+        <div>
+          <input value="{{userData?.firstName}}" type="text" id="firstName" name="firstName" [formControl]="firstNameControl" [(ngModel)]="firstName">
+          <div *ngIf="firstNameControl.invalid && (firstNameControl.dirty || firstNameControl.touched)">
+            <p *ngIf="firstNameControl?.errors?.['pattern']" style="font-size: 10px; color: red;">
+              Only alphabetic characters and length should not exceed 20 characters.
+            </p>
+              
+              
+          </div>
+        </div>
+      </div>
+    <div>
+        <label for="lastName">Last Name:</label>
+        <div>
+            <input value="{{userData?.lastName}}" type="text" id="lastName" name="lastName" [disabled]="!editMode" [(ngModel)]="lastName">
+        </div>
+       
+    </div>
+    <div>
+        <label for="age">Age:</label>
+        <div>
+            <input value="{{userData?.age}}" type="text" id="age" name="age" [disabled]="!editMode" [(ngModel)]="age">
+        </div>
+       
+    </div>
+  <div>
+    <label for="email">Email:</label>
+    <div>
+        <input value="{{userData?.email}}" type="email" id="email" name="email" [disabled]="!editMode" [(ngModel)]="email">
+    </div>
+    
+  </div>
+    
+    <div>
+        <label for="phone">Phone:</label>
+        <div>
+            <input value="{{userData?.phone}}" type="tel" id="phone" name="phone" [disabled]="!editMode" [(ngModel)]="phone">
+        </div>
+    
+    </div>
+    
+    <div>
+        <label for="address">Address:</label>
+        <div>
+            <input value="{{userData?.address}}" type="text" id="address" name="address" [disabled]="!editMode" [(ngModel)]="address">
+        </div>
+    
+    </div>
+    
+    <div>
+        <label for="state">State:</label>
+        <div>
+            <input value="{{userData?.state}}" type="text" id="state" name="state" [disabled]="!editMode" [(ngModel)]="state">
+        </div>
+    
+    </div>
+    
+    
+    
+    <div>
+         <label for="country">Country:</label>
+         <div>
+            <input value="{{userData?.country}}" type="text" id="country" name="country" [disabled]="!editMode" [(ngModel)]="country">
+         </div>
+        
+      </div>
+      <div>
+        <label for="address1">Adress1:</label>
+        <div>
+           <input value="{{userData?.address1}}" type="text" id="address1" name="address1" [disabled]="!editMode" [(ngModel)]="address1">
+        </div>
+       
+     </div>
+     <div>
+        <label for="address2">address2:</label>
+        <div>
+           <input value="{{userData?.address2}}" type="text" id="address2" name="address2" [disabled]="!editMode" [(ngModel)]="address2">
+        </div>
+       
+     </div>
+     <div>
+        <label for="company1">Company 1:</label>
+        <div>
+           <input value="{{userData?.company1}}" type="text" id="company1" name="company1" [disabled]="!editMode" [(ngModel)]="company1">
+        </div>
+       
+     </div>
+     <div>
+        <label for="company2">Company 2:</label>
+        <div>
+           <input value="{{userData?.company2}}" type="text" id="company2" name="company2" [disabled]="!editMode" [(ngModel)]="company2">
+        </div>
+       
+     </div>
+   
+  
+    
+  <div>
+    <button mat-raised-button color="primary" (click)="saveChanges()">Save</button>
+  </div>
+   
+  </div> 
+  

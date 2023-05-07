@@ -1,0 +1,157 @@
+<div class="dw2">
+<div>
+<div class="text">Register</div>
+<form [formGroup]="myForm" class="form">
+
+<div>
+
+  <div>
+    <div class="img1">
+      <ng-container *ngIf="imageUrl; else logo">
+        <img width="160px" height="170px" [src]="imageUrl" alt="Uploaded image">
+      </ng-container>
+      <ng-template #logo>
+        <img width="160px" height="170px" src="https://cdn.pixabay.com/photo/2015/09/09/14/02/icon-931551__340.jpg"
+          alt="Logo image">
+      </ng-template>
+    </div>
+    <div>
+      <input type="file" (change)="onFileSelected($event)" formControlName="imageUrl1">
+      <div *ngIf="errorMessage" style="color: red;">{{ errorMessage }}</div>
+    </div>
+  </div>
+</div>
+
+<div>
+  <div class="dw1">
+    <mat-form-field>
+      <mat-label>First Name</mat-label>
+      
+      <input matInput placeholder="Enter your first name" type="text" id="firstName" name="firstName" formControlName="firstName" [formControl]="firstName" >
+     
+    </mat-form-field>
+    
+    <mat-form-field>
+      <mat-label>Last Name</mat-label>
+      <input matInput placeholder="Enter your last name" name="lastName" formControlName="lastName">
+    </mat-form-field>
+  </div>
+  <div *ngIf="firstName.invalid && (firstName.dirty || firstName.touched)">
+    <p *ngIf="firstName?.errors?.['pattern']" style="font-size: 10px; color: red;">
+        Only alphabetic characters and length should not exceed 20 characters.
+    </p>
+      
+      
+  </div>
+
+  <div>
+    <div>
+      <mat-label>Age</mat-label>
+      <mat-slider min="16" max="100" step="1" showTickMarks discrete [displayWith]="formatLabel" class="mat-form-field">
+        <input matSliderThumb formControlName="age" style="width: 100%;">
+      </mat-slider>
+    </div>
+    <div>
+      <mat-form-field class="mat-form-field">
+        <mat-label>State</mat-label>
+        <mat-select formControlName="state">
+          <mat-option value="Maharashtra">Maharashtra</mat-option>
+          <mat-option value="Canada">Canada</mat-option>
+          <mat-option value="UK">UK</mat-option>
+        </mat-select>
+      </mat-form-field>
+    </div>
+
+    <div>
+      <mat-form-field class="mat-form-field">
+        <mat-label>Country</mat-label>
+        <mat-select formControlName="country">
+          <mat-option value="usa">USA</mat-option>
+          <mat-option value="canada">Canada</mat-option>
+          <mat-option value="uk">UK</mat-option>
+        </mat-select>
+      </mat-form-field>
+    </div>
+
+    <div>
+      <mat-form-field class="mat-form-field">
+        <mat-label>Email</mat-label>
+        <input matInput type="email" placeholder="Enter your email" formControlName="email">
+      </mat-form-field>
+    </div>
+
+    <div>
+      <mat-form-field class="mat-form-field">
+        <mat-label>Phone</mat-label>
+        <input matInput type="tel" placeholder="Enter your phone number" formControlName="phone">
+      </mat-form-field>
+    </div>
+
+    <div>
+      <mat-form-field class="mat-form-field">
+        <mat-label>Address</mat-label>
+        <mat-select [(ngModel)]="selectedOption" name="selectedOption" formControlName="address">
+          <mat-option value="home">Home</mat-option>
+          <mat-option value="company">Company</mat-option>
+
+        </mat-select>
+      </mat-form-field>
+    </div>
+
+    <div *ngIf="selectedOption === 'home'" class="adress">
+      <mat-form-field>
+        <mat-label>Address 1</mat-label>
+        <input matInput placeholder="Enter your home address 1" formControlName="address1">
+      </mat-form-field>
+
+      <mat-form-field>
+        <mat-label>Address 2</mat-label>
+        <input matInput placeholder="Enter your home address 2" formControlName="address2">
+      </mat-form-field>
+    </div>
+
+    <div *ngIf="selectedOption === 'company'" class="adress">
+      <mat-form-field>
+        <mat-label>Company Address 1</mat-label>
+        <input matInput placeholder="Enter your company address 1" formControlName="company1">
+      </mat-form-field>
+
+      <mat-form-field>
+        <mat-label>Company Address 2</mat-label>
+        <input matInput placeholder="Enter your company address 2" formControlName="company2">
+      </mat-form-field>
+    </div>
+  </div>
+</div>  
+</form>
+</div>
+
+<div class="dw3">
+  <div>
+  <mat-form-field class="mat-form-field">
+    <mat-label>Add a Skill</mat-label>
+    <input matInput [(ngModel)]="newSkill" name='newSkill' placeholder="Enter a skill">
+    <button mat-button (click)="addSkill()">Add</button>
+  </mat-form-field>
+</div>
+
+<div *ngIf="skills.length > 0">
+  <div *ngFor="let skill of skills">
+    <mat-chip>{{skill}}
+      <mat-icon matChipRemove (click)="removeSkill(skill)">cancel</mat-icon>
+    </mat-chip>
+  </div>
+  <p>Total Skills: {{ skills.length }}</p>
+</div>
+
+<div class="dw4">
+  <mat-checkbox checkboxPosition="before" color="primary" [(ngModel)]="subscribe"></mat-checkbox>
+  <mat-label>Subscribe to newsletter</mat-label>
+</div>
+
+<div class="dd8">
+  <button mat-raised-button matDialogClose>Cancel</button>
+  <button mat-raised-button color="primary" (click)="submit(subscribe)" type="submit">Submit</button>
+</div>
+</div>
+</div>

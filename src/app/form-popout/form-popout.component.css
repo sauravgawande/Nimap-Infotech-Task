@@ -1,0 +1,44 @@
+.previewData{
+   display: grid;
+   grid-template-columns: 1fr 3fr;
+
+}
+.dee1{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+    gap: 10px;
+    margin-top: 50px;
+    font-size: 18px;
+    font-weight: 500;
+    font-family: 'Times New Roman', Times, serif ;
+}
+.editForm{
+    display: flex;
+    flex-direction: column;
+    gap: 15px;
+    justify-content: center;
+    align-items: center;
+    margin-top: 50px;
+    font-size: 18px;
+}
+.profileHead{
+    background-color: green;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 60px;
+    color: white;
+    font-weight: 500;
+    font-size: 25px;
+}
+.btn{
+    display: flex;
+    gap: 10px;
+}
+input {
+    width: 300px;
+    height: 30px;
+    font-size: 15px;
+}

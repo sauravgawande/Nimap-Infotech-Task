@@ -1,0 +1,91 @@
+.form{
+    width: 700px;
+    height: 600px;
+    background-color: white;
+    margin: 10px 50px;
+    display: grid;
+    grid-template-columns: 1fr 3fr;
+    
+}
+.dw1{
+    display: flex;
+    gap: 5px;
+    width: 80%;
+}
+.dw2{
+    width: 90%;
+}
+.dw3 {
+    display: flex;
+    flex-direction: column;
+    align-items: flex-end;
+    position: relative;
+    bottom: 100px;
+    left: 60px;
+   
+  }
+  .dw3 .mat-mdc-form-field{
+    width: 370px;
+  }
+  .mat-mdc-form-field{
+    width: 80%;
+  }
+  .dw4{
+    display: flex;
+    justify-content: flex-start;
+    align-items: center;
+   margin-right: 190px;
+    
+  }
+  .dd8{
+    display: flex;
+    gap: 10px;
+  }
+  .adress{
+    display: flex;
+    flex-direction: column;
+    
+    position: relative;
+    right: 270px;
+    bottom: 80px;
+  }
+  .adress .mat-mdc-form-field{
+    width: 50%;
+  }
+  .text{
+    background-color: blueviolet;
+    height: 40px;
+    width: 100%;
+    color: white;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    font-weight: 500;
+    margin: 0px 50px;
+    font-size: 25px;
+  }
+  
+
+ 
+
+.toast {
+  background-color: #333 !important;
+  color: #fff !important;
+  font-size: 14px !important;
+}
+.toast-container{
+  background-color: red;
+}
+.toast-success {
+  background-color: #5cb85c !important;
+}
+.toast-info {
+  background-color: #5bc0de !important;
+}
+.toast-warning {
+  background-color: #f0ad4e !important;
+}
+.toast-error {
+  background-color: #d9534f !important;
+}
+

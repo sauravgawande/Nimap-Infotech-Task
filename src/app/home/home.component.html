@@ -1,0 +1,49 @@
+<div class="background">
+
+
+<mat-toolbar class="matToolbar">
+    <div>My Demo App</div>
+    <div class="navCotent" >
+        <div *ngFor="let item of list" class="content">
+            <a routerLink="{{item.path}}" >{{item.name}}</a>
+        </div>
+    </div>
+  </mat-toolbar>
+
+ 
+<div class="searchDiv">
+    <div>
+    <div class="text">I am Looking for....</div>
+    <div class="searchBar">
+        <input style="width: 500px;height: 30px;border-radius: 0.5rem;border: none;">
+        <button mat-raised-button color="primary" (click)="searchHandler()">Search</button>
+    </div>
+
+    <div class="dd1">
+        <mat-radio-group [(ngModel)]="jobType">
+            <mat-radio-button class="square-tick" value="Full Time">Full Time</mat-radio-button>
+            <mat-radio-button class="square-tick" value="Part Time / Internship">Part Time / Internship</mat-radio-button>
+          </mat-radio-group>
+          
+        <mat-form-field>
+            <mat-label>Select Location</mat-label>
+            <mat-select [(ngModel)]="selectedOption" >
+              <mat-option *ngFor="let item of options" value="{{item.value}}" >{{item.value}}</mat-option>
+             
+            </mat-select>
+          </mat-form-field>
+          
+          
+          
+    </div>
+    
+
+
+    <mat-dialog-actions >
+        <div class="register"><button mat-raised-button color="primary" (click)="openDialog()" >Register</button></div>
+    </mat-dialog-actions>
+    </div>
+</div>
+
+
+
